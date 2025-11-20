@@ -4,7 +4,7 @@
     <item>
         <linha>{{ $item->linha }}</linha>
         <data>{{ $item->data }}</data>
-        <booleano>{{ $item->booleano }}</booleano>
+        <booleano>{{ $item->booleano == 0 ? "false" : "true" }}</booleano>
         <decimal>{{ $item->decimal }}</decimal>
         <inteiro>{{ $item->inteiro }}</inteiro>
     </item>
