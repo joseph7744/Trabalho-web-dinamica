@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CadastrarController;
 use App\Http\Controllers\XmlController;
+use App\Models\Musica;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -10,7 +11,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $musicas = Musica::all();
+    return view('dashboard', compact('musicas'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/cadastrar', function () {

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Musica extends Model
 {
-    use hasFactory;
+    use HasFactory;
     protected $fillable = [
         'titulo',
         'artista',
