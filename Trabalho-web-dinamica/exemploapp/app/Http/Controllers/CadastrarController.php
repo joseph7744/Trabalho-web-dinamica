@@ -3,34 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Objeto;
+use App\Models\Musica;
 
 class CadastrarController extends Controller
 {
     public function salvar(Request $request){
         $request->validate([
-            'linha' => 'required|min:3|max:50',
-            'data' => 'required|date',
-            "booleano" => 'required|boolean',
-            "decimal" => 'required|decimal:2',
-            "inteiro" => 'required|integer',
+            'titulo' => 'required|string|max:50',
+            'artista' => 'required|string|max:50',
+            "genero" => 'required|string|max:50',
+            "ano_criacao" => 'required|date',
+            "duracao" => 'required|string',
         ],
         [
-            'linha.required' => 'O campo texto curto é obrigatório.',
-            'linha.min' => 'O campo texto curto deve ter no mínimo 3 caracteres.',
-            'linha.max' => 'O campo texto curto deve ter no máximo 50 caracteres.',
-            'data.required' => 'O campo data é obrigatório.',
-            'data.date' => 'O campo data deve ser uma data válida.',
-            'booleano.required' => 'O campo booleano é obrigatório.',
-            'booleano.boolean' => 'O campo booleano deve ser verdadeiro ou falso.',
-            'decimal.required' => 'O campo decimal é obrigatório.',
-            'decimal.decimal' => 'O campo decimal deve ser um número decimal com até 2 casas decimais.',
-            'inteiro.required' => 'O campo inteiro é obrigatório.',
-            'inteiro.integer' => 'O campo inteiro deve ser um número inteiro.',
+            'titulo.required' => 'O campo título da música é obrigatório.',
+            'titulo.max' => 'O campo título da música deve ter no máximo 50 caracteres.',
+            'artista.required' => 'O campo artista/banda é obrigatório.',
+            'artista.max' => 'O campo artista/banda deve ter no máximo 50 caracteres.',
+            'genero.required' => 'O campo gênero é obrigatório.',
+            'genero.max' => 'O campo gênero deve ter no máximo 50 caracteres.',
+            'ano_criacao.required' => 'O campo ano de criação é obrigatório.',
+            'ano_criacao.date' => 'O campo ano de criação deve ser uma data válida.',
+            'duracao.required' => 'O campo duração da música é obrigatório.',
+            'duracao.string' => 'O campo duração da música deve ser uma string.',
         ]);
-        $objeto = new Objeto();
-        $objeto->fill($request->all());
-        $objeto->save();
+        $musica = new Musica();
+        $musica->fill($request->all());
+        $musica->save();
         
         return view('cadastroSalvo');
     }

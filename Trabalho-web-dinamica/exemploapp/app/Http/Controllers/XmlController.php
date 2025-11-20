@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Objeto;
+use App\Models\Musica;
 
 class XmlController extends Controller
 {
     public function gerarXml()
     {
-        $dados = Objeto::all();
+        $dados = Musica::all();
 
         return response()->view('data-xml', ['registros' => $dados])->header('Content-Type', 'application/xml');
     }

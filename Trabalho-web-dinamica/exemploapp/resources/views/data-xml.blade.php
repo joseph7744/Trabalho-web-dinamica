@@ -2,11 +2,11 @@
 <data>
 @foreach ($registros as $item)
     <item>
-        <linha>{{ $item->linha }}</linha>
-        <data>{{ $item->data }}</data>
-        <booleano>{{ $item->booleano == 0 ? "false" : "true" }}</booleano>
-        <decimal>{{ $item->decimal }}</decimal>
-        <inteiro>{{ $item->inteiro }}</inteiro>
+        <titulo>{{ $item->titulo }}</titulo>
+        <artista>{{ $item->artista }}</artista>
+        <genero>{{ $item->genero }}</genero>
+        <ano_criacao>{{ $item->ano_criacao }}</ano_criacao>
+        <duracao>{{ $item->duracao }}</duracao>
     </item>
 @endforeach
 </data>
